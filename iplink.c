@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int main()
+int main(void)
 {   
     int r;
     int i;
@@ -10,6 +10,6 @@ int main()
     i=system("ip a");
     printf("%d\n",r);
     printf("%d\n",i);
-    pause();
+    sleep(120);
     return 0;
 }

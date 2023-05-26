@@ -18,6 +18,7 @@ spec:
       labels:
         app: iplink
     spec:
+      restartPolicy: OnFailure
       containers:
         - name: iplink
           image: ghcr.io/backchristoffer/iplink:master
