@@ -7,9 +7,9 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   namespace: iplink
-  name: iplink # Set the name of the deployment
+  name: iplink
 spec:
-  replicas: 1 # Set 3 deployment replicas
+  replicas: 1
   selector:
     matchLabels:
       app: iplink
