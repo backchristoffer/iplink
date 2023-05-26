@@ -1,4 +1,4 @@
-FROM rhel8/gcc-toolset-12-toolchain
+FROM centos/devtoolset-7-toolchain-centos7
 WORKDIR /app
 USER root
 RUN yum -y install net-tools iproute
