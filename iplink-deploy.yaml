@@ -9,7 +9,6 @@ metadata:
   namespace: iplink
   name: iplink
 spec:
-  restartPolicy: Always
   replicas: 1
   selector:
     matchLabels:
