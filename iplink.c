@@ -2,18 +2,13 @@
 #include <unistd.h>
 #include <stdio.h>
 
+int iplink() {
+    int r=system("ip -s link");   
+    return r;
+}
+
 int main(void)
 {   
-    int r;
-    int i;
-    
-    r=system("ip -s link");
-    i=system("ip a");
-
-    printf(system("ip -s link"));
-    printf(system("ip a"));
-    
-    sleep(120);
-    
+    iplink();
     return 0;
 }
