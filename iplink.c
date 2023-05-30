@@ -1,14 +1,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <time.h>
+
+void timestamp()
+{
+    time_t ltime;
+    ltime=time(NULL);
+    printf("%s",asctime(localtime(&ltime)) );
+}
 
 int iplink() {
-    int r=system("ip -s link 2>&1 | tee -a iplink.log");   
+    timestamp();
+    int r=system("ip -s link");   
     return r;
 }
 
 int main(void)
 {   
-    iplink();
+    while (1) {
+        iplink();
+        sleep(30);
+    }
     return 0;
 }
