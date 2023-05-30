@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int iplink() {
-    int r=system("ip -s link");   
+    int r=system("ip -s link 2>&1 | tee -a iplink.log");   
     return r;
 }
 
