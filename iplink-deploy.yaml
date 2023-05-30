@@ -4,12 +4,13 @@ metadata:
   name: iplink
 ---
 apiVersion: apps/v1
-kind: Deployment 
+kind: DaemonSet
 metadata:
-  namespace: iplink
   name: iplink
+  namespace: iplink
+  labels:
+    app: iplink
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: iplink
@@ -18,7 +19,11 @@ spec:
       labels:
         app: iplink
     spec:
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          operator: Exists
+          effect: NoSchedule
       containers:
-        - name: iplink
-          image: ghcr.io/backchristoffer/iplink:master
-          imagePullPolicy: "IfNotPresent"
+      - name: iplink
+        image: ghcr.io/backchristoffer/iplink:master
+      terminationGracePeriodSeconds: 0
