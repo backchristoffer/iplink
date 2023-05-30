@@ -2,25 +2,35 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <time.h>
+#include <signal.h>
 
-void timestamp()
+static volatile sig_atomic_t keep_running = 1;
+
+static void sig_handler(int _)
 {
-    time_t ltime;
-    ltime=time(NULL);
-    printf("%s",asctime(localtime(&ltime)) );
+    (void)_;
+    keep_running = 0;
+}
+
+int timestamp()
+{
+    int st=system("date");
+    return st;
 }
 
 int iplink() {
-    timestamp();
     int r=system("ip -s link");   
     return r;
 }
 
 int main(void)
 {   
-    while (1) {
+    signal(SIGINT, sig_handler);
+    
+    while (keep_running) {
+        timestamp();
         iplink();
         sleep(30);
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
