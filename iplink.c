@@ -16,7 +16,7 @@ static void sig_handler(int _)
 void timestamp() {
     time_t t;
     time(&t);
-    printf("%s\n",ctime(&t));
+    printf("\n%s\n",ctime(&t));
     fflush(stdout);
 }
 
