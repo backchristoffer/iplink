@@ -6,9 +6,9 @@
   
     - name: Deploy iplink on all nodes
       kubernetes.core.k8s:
-      src: iplink-deploy.yaml
-      namespace: iplink
-      state: present
+        src: iplink-deploy.yaml
+        namespace: iplink
+        state: present
     
     - name: Deploy iperf3 server
       kubernetes.core.k8s:
