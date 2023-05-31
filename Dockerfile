@@ -5,5 +5,5 @@ RUN yum -y install net-tools iproute
 RUN chown default .
 USER default
 COPY . /app
-RUN gcc -o iplink iplink.c
+RUN gcc -pthread -o iplink iplink.c
 CMD ["./iplink"]
