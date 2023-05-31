@@ -13,11 +13,10 @@ static void sig_handler(int _)
     keep_running = 0;
 }
 
-void* timestamp( void * arg) {
+void timestamp() {
     time_t t;
     time(&t);
     printf("%s",ctime(&t));
-    return NULL;
 }
 
 void* iplink( void * arg) {
@@ -27,12 +26,11 @@ void* iplink( void * arg) {
 
 int main(void)
 {   
-    pthread_t linkthread;
     pthread_t tsthread;
     signal(SIGINT, sig_handler);
 
     while (keep_running) {
-        pthread_create(&linkthread, NULL, timestamp, NULL);
+        timestamp();
         pthread_create(&tsthread, NULL, iplink, NULL);
         sleep(30);
     }
