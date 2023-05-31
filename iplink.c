@@ -16,11 +16,12 @@ static void sig_handler(int _)
 void timestamp() {
     time_t t;
     time(&t);
-    printf("%s",ctime(&t));
+    printf("%s\n",ctime(&t));
+    fflush(stdout);
 }
 
 void* iplink( void * arg) {
-    int r=system("ip -s link");   
+    int r=system("ip -s link");
     return NULL;
 }
 
@@ -32,7 +33,7 @@ int main(void)
     while (keep_running) {
         timestamp();
         pthread_create(&tsthread, NULL, iplink, NULL);
-        sleep(30);
+        sleep(15);
     }
 
     return EXIT_SUCCESS;
