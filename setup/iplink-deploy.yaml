@@ -26,4 +26,5 @@ spec:
       containers:
       - name: iplink
         image: ghcr.io/backchristoffer/iplink:master
+        imagePullPolicy: Always
       terminationGracePeriodSeconds: 0
