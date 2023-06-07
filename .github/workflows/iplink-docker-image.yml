@@ -15,4 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image and push to github
-      run: docker build . --file src/iplink_src/Dockerfile --tag iplink:latest && docker image push ghcr.io/backchristoffer/iplink:latest
+      run: docker build . --file src/iplink_src/Dockerfile --tag iplink:latest
+    - name: Tag image
+      run: docker image tag iplink:latest ghcr.io/backchristoffer/iplink:latest
+    - name: Push image to github
+      run: docker image push iplink:latest ghcr.io/backchristoffer/iplink:latest
