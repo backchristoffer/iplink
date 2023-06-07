@@ -25,6 +25,6 @@ spec:
           effect: NoSchedule
       containers:
       - name: iplink
-        image: ghcr.io/backchristoffer/iplink:master
+        image: ghcr.io/backchristoffer/iplink:latest
         imagePullPolicy: Always
       terminationGracePeriodSeconds: 0
