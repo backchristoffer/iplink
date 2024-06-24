@@ -1,5 +1,9 @@
+## Description
+Used to read network interface counters (RX&TX). iperf3 is there to run "traffic" on the interfaces so I can see if counters ramp up. 
+This was originally used to test if we could view network interface counters through OCP4 with iplink.
+
 ## iplink
-Basic container running "ip -s link" 
+Basic container running "ip -s link".   
 
 ## iperf3
 Test bandwidth
